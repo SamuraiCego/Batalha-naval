@@ -17,29 +17,29 @@ int main() {
     // Declarando dois vetores para cada navio e atribuindo o tamanho para 3 e o valor para 3
     int navio1[3]= {3,3,3}, navio2[3] = {3,3,3};
     // Declarando variaveis para declarar quais casas o primeiro navio irá ocupar
-    int coluna1 = 2, linha1 = 4;
+    int coluna1 = 4, linha1 = 2;
     // Declarando variaveis para declarar quais casas o segundo navio irá ocupar
-    int coluna2 = 7, linha2 = 9;
+    int coluna2 = 9, linha2 = 7;
     // Usada para contar as casas já preenchidas
     int preenchimento = 0;
 
     // Verificando se a posição do navio 1 é valida
-    if (coluna1 <= 9 && linha1 + 3 <= 10){
+    if (coluna1 + 3 < 10 && linha1 < 10){
         // Mudando o valor das colunas do tabuleiro para o valor de navio até realizar 3 colunas
         for(preenchimento; preenchimento < 3; preenchimento++){
-            tabuleiro[coluna1][linha1 + preenchimento] = navio1[preenchimento];
+            tabuleiro[linha1][ coluna1 + preenchimento] = navio1[preenchimento];
 
         }
     }  else{
         printf("Posição invalida para o návio 1\n");
     }
     // Verificando se a posição do navio 2 é valida
-    if (coluna2 + 3 <= 10 && linha1 <= 9){
+    if (coluna2 < 10 && linha1 + 3 < 10){
        // Mudando o valor das colunas do tabuleiro para o valor de navio até realizar 3 colunas
         for(preenchimento = 0; preenchimento < 3; preenchimento++){
             // Parando o processo caso o navio esteja sobrepondo o outro
-            if(tabuleiro[coluna2 + preenchimento][linha2] != 0) break;
-            tabuleiro[coluna2 + preenchimento][linha2] = navio2[preenchimento];
+            if(tabuleiro[linha2 + preenchimento][coluna2] != 0) break;
+            tabuleiro[linha2 + preenchimento][coluna2] = navio2[preenchimento];
           
         }
     }  else{
